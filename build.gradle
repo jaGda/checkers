@@ -1,17 +1,26 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
-group 'org.example'
+javafx {
+    version = "16"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+group 'com.checkers'
 version '1.0-SNAPSHOT'
+mainClassName = 'com.checkers.Checkers'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.1'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.1'
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.8.0'
 }
 
 test {
